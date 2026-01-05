@@ -1,0 +1,43 @@
+.success {
+  background-color: #e1ffe1;
+  border-color: #a6e3a1;
+  color: #151815;
+}
+
+.error {
+  background-color: #ffe1e1;
+  border-color: #e3a1a1;
+  color: #8b1c1c;
+}
+
+.info {
+  background-color: #e1f0ff;
+  border-color: #a1c4e3;
+  color: #386695;
+}
+
+.snackbar {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 40px;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 15px;
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.snackbar.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.snackbar.hide {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none; /* لتجنب التفاعل أثناء الاختفاء */
+}

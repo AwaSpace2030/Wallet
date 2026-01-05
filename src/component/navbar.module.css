@@ -1,0 +1,47 @@
+nav {
+  background-color: var(--color-dark-primary);
+  min-height: 80px;
+}
+
+.navCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+}
+.logo {
+  font-weight: bold;
+  color: white;
+  position: relative;
+  display: inline-block;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 2rem;
+  overflow: hidden;
+}
+.logo {
+  font-weight: 700;
+  font-size: 28px;
+  background: linear-gradient(200deg, #ffffff 0%, #d4d4d4 50%, #ffffff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-text 12s linear infinite;
+  display: inline-block;
+  -webkit-animation: shimmer-text 12s linear infinite;
+}
+
+@keyframes shimmer-text {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.right-nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
