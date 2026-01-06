@@ -57,6 +57,10 @@ button {
   border: none;
   background: none;
 }
+
+.basic-link {
+  color: white;
+}
 .btn-primary {
   background-color: var(--color-primary);
   border-radius: 200px;
@@ -83,6 +87,9 @@ button {
 .btn-out-line {
   background-color: transparent;
   border-radius: 200px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   -webkit-border-radius: 200px;
   -moz-border-radius: 200px;
   -ms-border-radius: 200px;

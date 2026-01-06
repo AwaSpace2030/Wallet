@@ -1,31 +1,64 @@
 import { useState } from "react";
 import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Snackbar from "../../component/Snackbar";
+import { useLogin } from "../../Hooks/UseLogin";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isPending, setIsPending] = useState(false);
 
-  function handleSubmit(e) {
+  const { login } = useLogin();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({
-      email,
-      password,
-    });
-  }
+    setErrorMessage("");
+    setSuccessMessage("");
+    setIsPending(true);
+
+    const { user, error } = await login(email, password);
+
+    if (error) {
+      setErrorMessage(error);
+      setIsPending(false);
+      return;
+    }
+
+    if (user) {
+      setSuccessMessage("Login successful ");
+
+      setEmail("");
+      setPassword("");
+
+      setTimeout(() => {
+        navigate("/dashboard", {
+          state: {
+            snackbar: "Login successful 🎉",
+          },
+        });
+      }, 500);
+    }
+
+    setIsPending(false);
+  };
 
   return (
     <div className={`container ${styles.login}`}>
       <motion.form
+        className={styles["login-form"]}
+        onSubmit={handleSubmit}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={styles["login-form"]}
-        onSubmit={handleSubmit}
       >
         <h2>Login</h2>
+
         <label className={styles.label}>
           <span>Email</span>
           <input
@@ -48,16 +81,24 @@ function Login() {
           />
         </label>
 
-        <button type="submit" className="btn-primary btn-submit">
-          Login
+        <button
+          type="submit"
+          className="btn-primary btn-submit"
+          disabled={isPending}
+        >
+          {isPending ? <span className="spinner"></span> : "Login"}
         </button>
+
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
         <p>
-          Not a member ?{" "}
-          <Link to="/Signup" className="link">
-            Sign UP
+          Not a member?{" "}
+          <Link to="/signup" className="link">
+            Sign Up
           </Link>
         </p>
-        <Link to="/ForgotPassword" className="link">
+
+        <Link to="/forgotpassword" className="link">
           Forgot password?
         </Link>
       </motion.form>

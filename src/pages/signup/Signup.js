@@ -5,6 +5,7 @@ import { useSignup } from "../../Hooks/UseSignup";
 import { Link } from "react-router-dom";
 import Snackbar from "../../component/Snackbar";
 import { validatePassword } from "../../utils/validatePassword";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,8 @@ export default function Signup() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [localPending, setLocalPending] = useState(false);
+
+  const navigate = useNavigate();
 
   const { signup } = useSignup();
   const handleSubmit = async (e) => {
@@ -39,6 +42,9 @@ export default function Signup() {
         setPassword("");
         setConfirmPassword("");
       }
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 4000);
     } catch {
       setErrorMessage("Unexpected error");
     } finally {
@@ -107,7 +113,10 @@ export default function Signup() {
         <p className={styles.info}>
           Already have an account?{" "}
           <Link to="/login" className="link">
-            Login here
+            Login
+          </Link>{" "}
+          <Link to="/dashboard" className="link">
+            dashboard
           </Link>
         </p>
       </motion.form>
