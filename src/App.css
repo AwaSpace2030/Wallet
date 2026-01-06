@@ -21,7 +21,7 @@ body {
   font-family: var(--font-base);
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.4;
   font-size: 16px;
 }
 
@@ -192,6 +192,9 @@ textarea:focus {
 .btn-submit:hover {
   color: white;
   background-color: var(--color-dark-primary);
+}
+.link:hover {
+  text-decoration: underline;
 }
 
 /*loading spinner*/

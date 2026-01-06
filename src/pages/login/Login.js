@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -50,6 +51,15 @@ function Login() {
         <button type="submit" className="btn-primary btn-submit">
           Login
         </button>
+        <p>
+          Not a member ?{" "}
+          <Link to="/Signup" className="link">
+            Sign UP
+          </Link>
+        </p>
+        <Link to="/ForgotPassword" className="link">
+          Forgot password?
+        </Link>
       </motion.form>
     </div>
   );

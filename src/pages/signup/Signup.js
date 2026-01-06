@@ -4,40 +4,45 @@ import { motion } from "framer-motion";
 import { useSignup } from "../../Hooks/UseSignup";
 import { Link } from "react-router-dom";
 import Snackbar from "../../component/Snackbar";
+import { validatePassword } from "../../utils/validatePassword";
 
-function Signup() {
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [localPending, setLocalPending] = useState(false);
 
-  const { isPending, signup } = useSignup();
-
+  const { signup } = useSignup();
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setSuccessMessage("");
     setErrorMessage("");
+    setSuccessMessage("");
 
-    if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match!");
+    const pwdError = validatePassword(password, confirmPassword);
+    if (pwdError) {
+      setErrorMessage(pwdError);
       return;
     }
 
-    const { user, error } = await signup(email, password);
+    setLocalPending(true);
 
-    if (error) {
-      setErrorMessage(error);
-      return;
-    }
+    try {
+      const { user, error } = await signup(email, password);
 
-    if (user) {
-      setSuccessMessage("Account created successfully 🎉");
+      if (error) setErrorMessage(error);
 
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      if (user) {
+        setSuccessMessage("Account created successfully 🎉");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+      }
+    } catch {
+      setErrorMessage("Unexpected error");
+    } finally {
+      setLocalPending(false);
     }
   };
 
@@ -51,6 +56,7 @@ function Signup() {
         transition={{ duration: 0.5 }}
       >
         <h2>Create Account</h2>
+
         <label className={styles.label}>
           <span>Email</span>
           <input
@@ -61,6 +67,7 @@ function Signup() {
             required
           />
         </label>
+
         <label className={styles.label}>
           <span>Password</span>
           <input
@@ -71,6 +78,7 @@ function Signup() {
             required
           />
         </label>
+
         <label className={styles.label}>
           <span>Confirm Password</span>
           <input
@@ -81,24 +89,28 @@ function Signup() {
             required
           />
         </label>
+
         <button
           type="submit"
           className="btn-primary btn-submit"
-          disabled={isPending}
+          disabled={localPending}
         >
-          {isPending ? <span className="spinner"></span> : "Sign Up"}
+          {localPending ? <span className="spinner"></span> : "Sign Up"}
         </button>
+
         {successMessage && (
           <Snackbar text={successMessage} type="success" duration={3000} />
         )}
 
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+
         <p className={styles.info}>
-          Already have an account? <Link to="/login">Login here</Link>
+          Already have an account?{" "}
+          <Link to="/login" className="link">
+            Login here
+          </Link>
         </p>
       </motion.form>
     </div>
   );
 }
-
-export default Signup;
