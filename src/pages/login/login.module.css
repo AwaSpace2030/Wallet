@@ -18,6 +18,9 @@
   flex-direction: column;
   gap: 8px;
 }
+.login-form label span {
+  font-size: 15px;
+}
 .login-form label input {
   border: none;
   border-bottom: 2px solid #e0e0e0;

@@ -1,4 +1,3 @@
-// src/Hooks/useLogin.js
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/config";
 

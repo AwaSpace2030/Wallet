@@ -45,3 +45,11 @@ nav {
   gap: 12px;
   align-items: center;
 }
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #edfaf1;
+  font-size: 14px;
+}

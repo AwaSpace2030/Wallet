@@ -2,14 +2,12 @@ import { useState } from "react";
 import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import Snackbar from "../../component/Snackbar";
 import { useLogin } from "../../Hooks/UseLogin";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
   const [isPending, setIsPending] = useState(false);
 
   const { login } = useLogin();
@@ -19,7 +17,6 @@ function Login() {
     e.preventDefault();
 
     setErrorMessage("");
-    setSuccessMessage("");
     setIsPending(true);
 
     const { user, error } = await login(email, password);
@@ -31,8 +28,6 @@ function Login() {
     }
 
     if (user) {
-      setSuccessMessage("Login successful ");
-
       setEmail("");
       setPassword("");
 
