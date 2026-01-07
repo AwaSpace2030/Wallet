@@ -35,7 +35,7 @@ function Navbar() {
 
           {!loading && user && (
             <>
-              <Link to="/dashboard" className="basic-link">
+              <Link to="/" className="basic-link">
                 Dashboard
               </Link>
               <button onClick={handleSignOut} className="btn-out-line">

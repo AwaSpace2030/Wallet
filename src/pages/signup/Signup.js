@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Snackbar from "../../component/Snackbar";
 import { validatePassword } from "../../utils/validatePassword";
 import { useNavigate } from "react-router-dom";
+import { addUserToDB } from "../../utils/userService";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ export default function Signup() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [localPending, setLocalPending] = useState(false);
+  const [name, setName] = useState("");
 
   const navigate = useNavigate();
 
@@ -30,21 +32,24 @@ export default function Signup() {
     }
 
     setLocalPending(true);
-
     try {
       const { user, error } = await signup(email, password);
 
-      if (error) setErrorMessage(error);
-
       if (user) {
+        await addUserToDB(email, name);
+
         setSuccessMessage("Account created successfully 🎉");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
+        setName("");
+
+        setTimeout(() => {
+          navigate("/");
+        }, 4000);
       }
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 4000);
+
+      if (error) setErrorMessage(error);
     } catch {
       setErrorMessage("Unexpected error");
     } finally {
@@ -62,6 +67,16 @@ export default function Signup() {
         transition={{ duration: 0.5 }}
       >
         <h2>Create Account</h2>
+        <label className={styles.label}>
+          <span>Name</span>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
+            required
+          />
+        </label>
 
         <label className={styles.label}>
           <span>Email</span>

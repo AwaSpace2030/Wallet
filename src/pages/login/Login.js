@@ -37,7 +37,7 @@ function Login() {
       setPassword("");
 
       setTimeout(() => {
-        navigate("/dashboard", {
+        navigate("/", {
           state: {
             snackbar: "Login successful 🎉",
           },
