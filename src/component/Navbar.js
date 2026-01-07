@@ -22,8 +22,12 @@ function Navbar() {
   // Effect to update currentUserName when users data is loaded or user changes
   useEffect(() => {
     if (!usersLoading && user) {
-      const matchedUser = users.find((u) => u.email === user.email);
-      setCurrentUserName(matchedUser?.name || "User"); // fallback to "User" if not found
+      // Normalize emails to lower case to avoid case-sensitivity issues
+      const matchedUser = users.find(
+        (u) => u.email?.toLowerCase() === user.email.toLowerCase()
+      );
+
+      setCurrentUserName(matchedUser?.name || "User"); // fallback if not found
     }
   }, [users, usersLoading, user]);
 

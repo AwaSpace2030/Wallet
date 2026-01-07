@@ -5,3 +5,7 @@
 .header h3 {
   margin: 20px 0;
 }
+
+.w-user {
+  color: var(--color-dark-primary);
+}

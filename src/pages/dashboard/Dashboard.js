@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useFirestoreData } from "../../Hooks/UseFirestoreData";
 import { auth } from "../../firebase/config";
+import Transactions from "../../component/Transactions";
 
 export default function Dashboard() {
   const location = useLocation();
@@ -24,13 +25,16 @@ export default function Dashboard() {
   return (
     <div className={`${styles.dashboard} container`}>
       <div className={styles.header}>
-        <h1>Welcome to Dashboard</h1>
         {loading && <p>Loading your data...</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}
-        {!loading && !error && <h3>Hi {userName} 👋</h3>}
+        {!loading && !error && (
+          <h3>
+            Welcome <span className={styles["w-user"]}> {userName} </span>👋
+          </h3>
+        )}
       </div>
 
-      <p>This is your main dashboard page.</p>
+      <Transactions />
 
       {snackbar && (
         <Snackbar
