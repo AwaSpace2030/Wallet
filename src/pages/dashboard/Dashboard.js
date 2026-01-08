@@ -2,9 +2,10 @@ import styles from "./dashboard.module.css";
 import Snackbar from "../../component/Snackbar";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useFirestoreData } from "../../Hooks/UseFirestoreData";
+import { useFirestoreData } from "../../Hooks/useFirestoreData";
 import { auth } from "../../firebase/config";
 import Transactions from "../../component/Transactions";
+import { formatDate } from "../../utils/formatDate";
 
 export default function Dashboard() {
   const location = useLocation();
@@ -32,6 +33,7 @@ export default function Dashboard() {
             Welcome <span className={styles["w-user"]}> {userName} </span>👋
           </h3>
         )}
+        <div className="today-date">{formatDate()}</div>
       </div>
 
       <Transactions />

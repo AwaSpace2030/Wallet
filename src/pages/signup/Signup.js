@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
-import { useSignup } from "../../Hooks/UseSignup";
+import { useSignup } from "../../Hooks/useSignup";
 import { Link } from "react-router-dom";
 import Snackbar from "../../component/Snackbar";
 import { validatePassword } from "../../utils/validatePassword";

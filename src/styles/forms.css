@@ -1,0 +1,32 @@
+/* form container */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* form title */
+.form-title {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* label */
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* label text */
+.form span {
+  font-size: 15px;
+}
+
+/* inputs */
+.form input {
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 6px;
+  height: 38px;
+}

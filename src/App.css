@@ -109,6 +109,10 @@ button {
 .btn-out-line:hover {
   border-color: var(--color-dark-primary);
 }
+.Boxshadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
 
 /* =========================
    5. Layout Helpers
@@ -194,6 +198,10 @@ textarea:focus {
   margin-top: 20px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
@@ -206,8 +214,10 @@ textarea:focus {
 
 /*loading spinner*/
 .spinner {
-  border: 3px solid #f3f3f3; /* لون الخلفية */
-  border-top: 3px solid var(--color-dark-primary); /* اللون المتحرك */
+  border: 3px solid #f3f3f3;
+  /*لونالخلفية*/
+  border-top: 3px solid var(--color-dark-primary);
+  /*اللونالمتحرك*/
   border-radius: 50%;
   width: 18px;
   height: 18px;
@@ -215,6 +225,10 @@ textarea:focus {
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 @keyframes spin {
@@ -224,4 +238,9 @@ textarea:focus {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.today-date {
+  color: var(--color-text-secondary);
+  font-size: 15px;
 }

@@ -3,16 +3,15 @@
   flex-wrap: wrap;
   gap: 20px;
   box-sizing: border-box;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .main-con {
   flex: 2;
   min-width: 300px;
-  background-color: #f0f0f0;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f1f1f18c;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
@@ -25,5 +24,83 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f1f1;
+  padding-bottom: 40px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+.transaction-card {
+  padding: 0 32px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f1f1f1;
+  margin-bottom: 8px;
+  background-color: white;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.card-delete-btn {
+  position: absolute;
+  color: #9d9d9d;
+  right: 6px;
+  top: 7px;
+  width: 35px;
+  height: 35px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  -o-border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-delete-btn svg {
+  font-size: 22px;
+}
+
+.trans-form {
+  margin-top: 20px;
+}
+
+.submit-btn {
+  padding: 10px 0;
+  margin-top: 12px;
+}
+.submit-btn:hover {
+  background-color: var(--color-dark-primary);
+}
+
+.no-trans {
+  font-size: 14px;
+  padding: 20px;
+}
+.card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-left p {
+  font-size: 12px;
+}
+
+.amount {
+  color: var(--color-dark-primary);
 }

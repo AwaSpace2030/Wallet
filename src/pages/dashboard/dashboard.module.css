@@ -1,6 +1,11 @@
 .dashboard {
   padding: 60px 20px;
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .header h3 {
   margin: 20px 0;
