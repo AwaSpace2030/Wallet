@@ -36,8 +36,13 @@ export function useTransactions() {
         setLoading(false);
       },
       (err) => {
-        console.error(err);
-        setError(err.message);
+        if (err.message.includes("Missing or insufficient permissions")) {
+          setTransactions([]);
+          setError("");
+        } else {
+          console.error(err);
+          setError(err.message);
+        }
         setLoading(false);
       }
     );
@@ -47,7 +52,7 @@ export function useTransactions() {
 
   const addTransaction = async (title, amount) => {
     const currentUser = auth.currentUser;
-    if (!currentUser) return null;
+    if (!currentUser) return false;
 
     try {
       const newTransaction = {
@@ -67,6 +72,7 @@ export function useTransactions() {
     }
   };
 
+  // حذف معاملة
   const deleteTransaction = async (id) => {
     try {
       await deleteDoc(doc(db, "transactions", id));

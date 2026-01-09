@@ -1,37 +1,30 @@
 import { useState, useEffect, useRef } from "react";
-import { auth } from "../firebase/config";
+import { auth, db } from "../firebase/config"; //
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const isCancelled = useRef(false);
 
-  const signup = async (email, password) => {
+  const signup = async (email, password, name) => {
     setIsPending(true);
     setError(null);
 
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      if (!isCancelled.current) {
-        setIsPending(false);
-      }
-      return { user: res.user, error: null };
-    } catch (err) {
-      const errorMessages = {
-        "auth/email-already-in-use": "Email is already in use!",
-        "auth/invalid-email": "Invalid email address!",
-        "auth/weak-password": "Password is too weak!",
-        "auth/network-request-failed": "Network error. Please try again.",
-      };
+      const userDocRef = doc(db, "users", res.user.uid);
+      await setDoc(userDocRef, { name, email });
 
-      const message = errorMessages[err.code] || "An error occurred!";
-
-      if (!isCancelled.current) setError(message);
       if (!isCancelled.current) setIsPending(false);
 
-      return { user: null, error: message };
+      return { user: res.user, userData: { name, email }, error: null };
+    } catch (err) {
+      if (!isCancelled.current) setError(err.message);
+      if (!isCancelled.current) setIsPending(false);
+      return { user: null, userData: null, error: err.message };
     }
   };
 

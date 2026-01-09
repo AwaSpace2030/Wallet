@@ -2,64 +2,49 @@ import { useState } from "react";
 import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
 import { useSignup } from "../../Hooks/useSignup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Snackbar from "../../component/Snackbar";
 import { validatePassword } from "../../utils/validatePassword";
-import { useNavigate } from "react-router-dom";
-import { addUserToDB } from "../../utils/userService";
+import { auth } from "../../firebase/config";
 
 export default function Signup() {
-  // Local states for form inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
 
-  // Local states for feedback and loading
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [localPending, setLocalPending] = useState(false);
 
-  const navigate = useNavigate(); // Hook for programmatic navigation
-  const { signup } = useSignup(); // Custom hook for signing up users
+  const navigate = useNavigate();
+  const { signup } = useSignup();
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); // Clear previous errors
-    setSuccessMessage(""); // Clear previous success messages
+    setErrorMessage("");
+    setSuccessMessage("");
 
-    // Validate password and confirm password
     const pwdError = validatePassword(password, confirmPassword);
     if (pwdError) {
       setErrorMessage(pwdError);
       return;
     }
 
-    setLocalPending(true); // Show spinner while processing
+    setLocalPending(true);
 
     try {
-      // Sign up user with email and password
-      const { user, error } = await signup(email, password);
+      const { user, userData, error } = await signup(email, password, name);
 
-      if (user) {
-        // Add user to Firestore
-        await addUserToDB(email, name);
+      if (!user || !userData) throw new Error(error || "Signup failed");
 
-        // Show success message via Snackbar
-        setSuccessMessage("Account created successfully 🎉");
-
-        // Navigate to Dashboard after a short delay
-        setTimeout(() => {
-          navigate("/"); // Redirect to Dashboard
-        }, 2000); // 2 seconds delay for user feedback
-      }
-
-      if (error) setErrorMessage(error);
-    } catch {
-      setErrorMessage("Unexpected error");
+      setSuccessMessage("Account created successfully 🎉");
+      setTimeout(() => navigate("/"), 2000);
+    } catch (err) {
+      await auth.signOut();
+      setErrorMessage(err.message);
     } finally {
-      setLocalPending(false); // Hide spinner
+      setLocalPending(false);
     }
   };
 
@@ -68,13 +53,12 @@ export default function Signup() {
       <motion.form
         className={styles["login-form"]}
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, y: -20 }} // Animation on mount
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <h2>Create Account</h2>
 
-        {/* Name input */}
         <label className={styles.label}>
           <span>Name</span>
           <input
@@ -86,7 +70,6 @@ export default function Signup() {
           />
         </label>
 
-        {/* Email input */}
         <label className={styles.label}>
           <span>Email</span>
           <input
@@ -98,7 +81,6 @@ export default function Signup() {
           />
         </label>
 
-        {/* Password input */}
         <label className={styles.label}>
           <span>Password</span>
           <input
@@ -110,7 +92,6 @@ export default function Signup() {
           />
         </label>
 
-        {/* Confirm Password input */}
         <label className={styles.label}>
           <span>Confirm Password</span>
           <input
@@ -122,7 +103,6 @@ export default function Signup() {
           />
         </label>
 
-        {/* Submit button */}
         <button
           type="submit"
           className="btn-primary btn-submit"
@@ -131,22 +111,16 @@ export default function Signup() {
           {localPending ? <span className="spinner"></span> : "Sign Up"}
         </button>
 
-        {/* Snackbar for success messages */}
         {successMessage && (
           <Snackbar text={successMessage} type="success" duration={3000} />
         )}
 
-        {/* Display error messages */}
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 
-        {/* Links to Login and Dashboard */}
         <p className={styles.info}>
           Already have an account?{" "}
           <Link to="/login" className="link">
             Login
-          </Link>{" "}
-          <Link to="/dashboard" className="link">
-            Dashboard
           </Link>
         </p>
       </motion.form>

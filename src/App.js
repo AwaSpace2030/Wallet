@@ -8,7 +8,7 @@ import Navbar from "./component/Navbar";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from "./component/ProtectedRoute";
-import { AuthProvider } from "./Context/AuthContext";
+import { AuthProvider } from "./Context/AppUserContext";
 
 function App() {
   return (
@@ -19,7 +19,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-
           <Route
             path="/"
             element={

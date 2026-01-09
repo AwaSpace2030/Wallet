@@ -1,35 +1,25 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import styles from "./navbar.module.css";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../Context/AppUserContext";
 import { auth } from "../firebase/config";
 import { IoExitOutline, IoPersonCircle } from "react-icons/io5";
-import { useFirestoreData } from "../Hooks/useFirestoreData";
 
 function Navbar() {
-  const { user, loading: authLoading } = useAuth();
-  const { data: users, loading: usersLoading } = useFirestoreData("users");
+  const { user, userData, loading } = useAuth();
+  const navigate = useNavigate();
   const location = useLocation();
-  const [currentUserName, setCurrentUserName] = useState("User");
-
-  useEffect(() => {
-    if (!usersLoading && user) {
-      const matchedUser = users.find(
-        (u) => u.email?.toLowerCase() === user.email.toLowerCase()
-      );
-      setCurrentUserName(matchedUser?.name || "User");
-    }
-  }, [users, usersLoading, user]);
 
   const handleSignOut = async () => {
     try {
       await auth.signOut();
+      navigate("/login", { replace: true });
     } catch (err) {
       console.error("Sign out error:", err);
     }
   };
 
-  const showUserInfo = user && location.pathname === "/";
+  const showUserMenu =
+    !loading && user && userData?.name && location.pathname === "/";
 
   return (
     <nav className={styles.navbar}>
@@ -39,7 +29,7 @@ function Navbar() {
         </Link>
 
         <div className={styles["right-nav"]}>
-          {!authLoading && !user && (
+          {!loading && !user && (
             <>
               <Link to="/login" className="btn-primary">
                 Login
@@ -50,13 +40,12 @@ function Navbar() {
             </>
           )}
 
-          {showUserInfo && (
+          {showUserMenu && (
             <>
               <div className={styles.userInfo}>
                 <IoPersonCircle size={30} className={styles.userIcon} />
-                <span className={styles.username}>{currentUserName}</span>
+                <span className={styles.username}>{userData.name}</span>
               </div>
-
               <button onClick={handleSignOut} className="btn-out-line">
                 Sign Out <IoExitOutline />
               </button>
