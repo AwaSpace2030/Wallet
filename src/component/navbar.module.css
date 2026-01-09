@@ -9,19 +9,18 @@ nav {
   align-items: center;
   min-height: 80px;
 }
-.logo {
-  font-weight: bold;
-  color: white;
-  position: relative;
-  display: inline-block;
-  color: var(--color-primary);
-  font-weight: 700;
-  font-size: 2rem;
-  overflow: hidden;
+.logo-icon {
+  width: 30px;
 }
+.logo-con {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .logo {
   font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
   background: linear-gradient(200deg, #ffffff 0%, #d4d4d4 50%, #ffffff 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;

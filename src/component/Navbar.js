@@ -25,7 +25,14 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={`container ${styles.navCon}`}>
         <Link to="/">
-          <h2 className={styles.logo}>Wallet</h2>
+          <div className={styles["logo-con"]}>
+            <img
+              src="/logo.svg"
+              alt="Wallet Logo"
+              className={styles["logo-icon"]}
+            />
+            <h2 className={styles.logo}>Wallet</h2>
+          </div>
         </Link>
 
         <div className={styles["right-nav"]}>
