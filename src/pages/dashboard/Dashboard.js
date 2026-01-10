@@ -25,7 +25,8 @@ export default function Dashboard() {
         {loading && <p>Loading your data...</p>}
         {!loading && (
           <h3>
-            Welcome <span className={styles["w-user"]}>{userName}</span> 👋
+            Welcome <span className={styles["w-user"]}>{userName}</span>{" "}
+            <span className={`${styles.animateEmoji}`}>👋</span>
           </h3>
         )}
         <div className="today-date">{formatDate()}</div>

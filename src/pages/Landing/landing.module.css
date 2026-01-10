@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+  background-image: url(../../../public/img/bg-landing.jpg);
+}
+.right-side .cover-img {
+  background-image: url(../../../public/img/Hero.png);
+  background-size: cover;
+  width: 80%;
+  height: 90%;
+  background-position: center;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  margin: 20px;
+}
+.left-side p {
+  color: aliceblue;
+}
+
+.right-side,
+.left-side {
+  color: white;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-side img {
+  width: 54px;
+}
+
+.left-side h4 {
+  color: white;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 18px;
+}
+
+.btn-start {
+  padding: 12px 60px;
+  margin-top: 20px;
+}
+
+/* Responsive - على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .right-side {
+    display: none;
+    text-align: center;
+  }
+}
