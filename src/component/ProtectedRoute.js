@@ -12,7 +12,7 @@ export default function ProtectedRoute({ children }) {
         <span className="spinner spinner-larg"></span>
       </div>
     );
-  if (!user) return <Navigate to="/landing" replace />;
+  if (!user) return <Navigate to="/home" replace />;
 
   return children;
 }

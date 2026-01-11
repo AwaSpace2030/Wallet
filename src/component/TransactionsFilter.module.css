@@ -1,0 +1,26 @@
+.form-filter {
+  display: flex;
+  flex-direction: row; /* صف افتراضي */
+  gap: 10px; /* مسافة بين العناصر */
+  width: 100%;
+  margin: 20px 0;
+}
+.filter-btn {
+  background-color: rgb(255, 255, 255);
+  border-color: var(--color-dark-primary);
+  color: var(--color-dark-primary);
+}
+.filter-btn:hover {
+  background-color: var(--color-dark-primary);
+  color: white;
+}
+
+.form-filter > * {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .form-filter {
+    flex-direction: column;
+  }
+}

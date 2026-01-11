@@ -6,15 +6,30 @@ export function SideForm() {
   const [tranName, setTransName] = useState("");
   const [amount, setAmount] = useState("");
   const { addTransaction, loading, error } = useTransactions();
+  const [category, setCategory] = useState("");
+
+  const categoryList = [
+    "Housing",
+    "Utilities",
+    "Food",
+    "Transportation",
+    "Health",
+    "Education",
+    "Clothing",
+    "Entertainment",
+    "Savings",
+    "Others",
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!tranName || !amount) return;
 
-    const newTransId = await addTransaction(tranName, amount);
+    const newTransId = await addTransaction(tranName, amount, category);
     if (newTransId) {
       setTransName("");
       setAmount("");
+      setCategory("");
     }
   };
 
@@ -43,6 +58,14 @@ export function SideForm() {
             onChange={(e) => setAmount(e.target.value)}
           />
         </label>
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="">Select Category</option>
+          {categoryList.map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))}
+        </select>
 
         <button
           className={`${styles["submit-btn"]} btn-primary`}

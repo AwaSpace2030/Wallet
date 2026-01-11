@@ -18,6 +18,10 @@
   -o-border-radius: 12px;
 }
 
+.transaction-category {
+  font-size: 12px;
+}
+
 .right-side {
   flex: 1;
   min-width: 250px;
@@ -97,10 +101,32 @@
   gap: 8px;
 }
 
+.card-left h5 {
+  font-size: 15px;
+}
+
 .card-left p {
   font-size: 12px;
 }
 
 .amount {
   color: var(--color-dark-primary);
+}
+
+.total-card {
+  background-color: #fdf3f1;
+}
+
+@media (max-width: 900px) {
+  .trans-con {
+    flex-direction: column;
+  }
+
+  .right-side {
+    order: -1;
+  }
+
+  .main-con {
+    order: 0;
+  }
 }

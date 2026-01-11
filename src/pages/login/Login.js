@@ -31,13 +31,14 @@ function Login() {
       setEmail("");
       setPassword("");
 
-      setTimeout(() => {
-        navigate("/", {
-          state: {
-            snackbar: "Login successful 🎉",
+      navigate("/", {
+        state: {
+          snackbar: {
+            message: "Login successful 🎉",
+            type: "success",
           },
-        });
-      }, 500);
+        },
+      });
     }
 
     setIsPending(false);

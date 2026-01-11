@@ -30,6 +30,7 @@ export function useTransactions() {
       (snapshot) => {
         const trans = snapshot.docs.map((doc) => ({
           id: doc.id,
+          category: doc.data().category || "Uncategorized",
           ...doc.data(),
         }));
         setTransactions(trans);
@@ -50,7 +51,7 @@ export function useTransactions() {
     return () => unsubscribe();
   }, []);
 
-  const addTransaction = async (title, amount) => {
+  const addTransaction = async (title, amount, category) => {
     const currentUser = auth.currentUser;
     if (!currentUser) return false;
 
@@ -59,6 +60,7 @@ export function useTransactions() {
         userId: currentUser.uid,
         userEmail: currentUser.email,
         title,
+        category,
         amount: Number(amount),
         date: new Date().toISOString(),
       };
@@ -72,7 +74,6 @@ export function useTransactions() {
     }
   };
 
-  // حذف معاملة
   const deleteTransaction = async (id) => {
     try {
       await deleteDoc(doc(db, "transactions", id));

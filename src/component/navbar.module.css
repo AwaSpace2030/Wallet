@@ -21,22 +21,8 @@ nav {
 .logo {
   font-weight: 700;
   font-size: 24px;
-  background: linear-gradient(200deg, #ffffff 0%, #d4d4d4 50%, #ffffff 100%);
+  color: #eaeaea;
   background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer-text 12s linear infinite;
-  display: inline-block;
-  -webkit-animation: shimmer-text 12s linear infinite;
-}
-
-@keyframes shimmer-text {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
 }
 
 .right-nav {

@@ -3,11 +3,14 @@ import { useLocation } from "react-router-dom";
 
 export function LayoutWithNavbar({ children }) {
   const location = useLocation();
-  const noNavbarPages = ["/landing", "/login", "/signup", "/forgotpassword"];
+
+  const navbarPages = ["/", "/profile"];
+
+  const showNavbar = navbarPages.includes(location.pathname);
 
   return (
     <>
-      {!noNavbarPages.includes(location.pathname) && <Navbar />}
+      {showNavbar && <Navbar />}
       {children}
     </>
   );

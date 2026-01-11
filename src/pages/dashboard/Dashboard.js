@@ -8,14 +8,16 @@ import { formatDate } from "../../utils/formatDate";
 
 export default function Dashboard() {
   const location = useLocation();
-  const [snackbar, setSnackbar] = useState("");
+  const [snackbar, setSnackbar] = useState(null);
 
-  const { user, userData, loading } = useAuth();
+  const { userData, loading } = useAuth();
   const userName = userData?.name || "User";
 
   useEffect(() => {
     if (location.state?.snackbar) {
       setSnackbar(location.state.snackbar);
+
+      window.history.replaceState({}, document.title);
     }
   }, [location.state]);
 
@@ -26,7 +28,7 @@ export default function Dashboard() {
         {!loading && (
           <h3>
             Welcome <span className={styles["w-user"]}>{userName}</span>{" "}
-            <span className={`${styles.animateEmoji}`}>👋</span>
+            <span className={styles.animateEmoji}>👋</span>
           </h3>
         )}
         <div className="today-date">{formatDate()}</div>
@@ -36,10 +38,10 @@ export default function Dashboard() {
 
       {snackbar && (
         <Snackbar
-          text={snackbar}
-          type="success"
-          duration={3000}
-          onClose={() => setSnackbar("")}
+          text={snackbar.message}
+          type={snackbar.type}
+          duration={snackbar.duration || 3000}
+          onClose={() => setSnackbar(null)}
         />
       )}
     </div>

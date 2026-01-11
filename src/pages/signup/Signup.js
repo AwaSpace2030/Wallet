@@ -3,7 +3,6 @@ import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
 import { useSignup } from "../../Hooks/useSignup";
 import { Link, useNavigate } from "react-router-dom";
-import Snackbar from "../../component/Snackbar";
 import { validatePassword } from "../../utils/validatePassword";
 import { auth } from "../../firebase/config";
 
@@ -13,7 +12,6 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
 
-  const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [localPending, setLocalPending] = useState(false);
 
@@ -23,7 +21,6 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
-    setSuccessMessage("");
 
     const pwdError = validatePassword(password, confirmPassword);
     if (pwdError) {
@@ -36,10 +33,18 @@ export default function Signup() {
     try {
       const { user, userData, error } = await signup(email, password, name);
 
-      if (!user || !userData) throw new Error(error || "Signup failed");
+      if (!user || !userData) {
+        throw new Error(error || "Signup failed");
+      }
 
-      setSuccessMessage("Account created successfully 🎉");
-      setTimeout(() => navigate("/"), 2000);
+      navigate("/", {
+        state: {
+          snackbar: {
+            message: "You’re all set! Registration completed successfully 🎉",
+            type: "success",
+          },
+        },
+      });
     } catch (err) {
       await auth.signOut();
       setErrorMessage(err.message);
@@ -110,10 +115,6 @@ export default function Signup() {
         >
           {localPending ? <span className="spinner"></span> : "Sign Up"}
         </button>
-
-        {successMessage && (
-          <Snackbar text={successMessage} type="success" duration={3000} />
-        )}
 
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 

@@ -15,8 +15,6 @@
   color: var(--color-dark-primary);
 }
 
-/* أنيميشن للـ Emoji */
-/* أنيميشن للـ Emoji */
 @keyframes wave {
   0% {
     transform: rotate(0deg);
@@ -42,7 +40,7 @@
 }
 
 .animateEmoji {
-  display: inline-block; /* ضروري لتطبيق transform */
-  transform-origin: 70% 70%; /* مركز الدوران عند اليد */
-  animation: wave 1s ease-in-out 8; /* مدة 1 ثانية، تتكرر 8 مرات */
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 1s ease-in-out 8;
 }
