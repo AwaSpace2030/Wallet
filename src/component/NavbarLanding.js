@@ -13,6 +13,9 @@ function NavbarLanding() {
 
       <ul className={styles["right-nav"]}>
         <li>
+          <Link to="/landing">Home</Link>
+        </li>
+        <li>
           <Link to="/about">About</Link>
         </li>
         <li>
