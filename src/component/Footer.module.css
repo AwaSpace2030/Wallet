@@ -1,0 +1,13 @@
+footer {
+  text-align: center;
+  border-top: 1px solid rgb(236, 236, 236);
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  color: rgb(198, 198, 198);
+  font-size: 12px;
+}

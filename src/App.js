@@ -10,6 +10,7 @@ import { AuthProvider } from "./Context/AppUserContext";
 import Landing from "./pages/Landing/Landing";
 import { LayoutWithNavbar } from "./component/LayoutWithNavbar";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import About from "./pages/About/About";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/home" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/About" element={<About />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="*" element={<Landing />} />

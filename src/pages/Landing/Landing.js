@@ -1,29 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
-import styles from "./landing.module.css";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import NavbarLanding from "../../component/NavbarLanding";
+import styles from "./landing.module.css";
 
 function Landing() {
   const navigate = useNavigate();
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.nav}>
-        <Link to={"/home"}>
-          <div className={styles["nav-logo"]}>
-            <img src="/logo-green.svg" className="logo" />
-            <p>Wallet</p>
-          </div>
-        </Link>
-
-        <ul className={styles["right-nav"]}>
-          <li>
-            <Link to="/About">About</Link>
-          </li>
-          <li>
-            <Link to="/login">Sign in</Link>
-          </li>
-        </ul>
-      </div>
+      <NavbarLanding />
 
       <div className={styles["landing-con"]}>
         <motion.div

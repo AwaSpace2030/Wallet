@@ -1,0 +1,138 @@
+.About {
+  background-color: #fafafa;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.About .header {
+  background-color: var(--color-dark-primary);
+  min-height: 83px;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  color: #6b7280;
+  font-size: 1.05rem;
+}
+
+.about-con {
+  margin-top: 80px;
+}
+
+.container {
+  max-width: 1000px;
+  padding-bottom: 40px;
+}
+
+.container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.container h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.container p {
+  line-height: 1.8;
+  color: #374151;
+}
+
+.container li {
+  margin-bottom: 0.5rem;
+}
+
+.container section {
+  margin-bottom: 2.2rem;
+}
+
+/* Feature Cards */
+.feat-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  margin: 20px 0;
+}
+
+/* Medium & Large screens → 2 columns */
+@media (min-width: 768px) {
+  .feat-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.2rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+}
+
+/* Icon */
+.icon {
+  font-size: 1.1rem;
+  color: #16a34a;
+  background-color: #e8f7f2;
+  border-radius: 0.6rem;
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+}
+
+/* Text in Card */
+.card span {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Text Box / Project Overview */
+.text-box {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  margin: 20px 0;
+  padding: 30px;
+  background-color: white;
+}
+
+/* Tech Stack Tags */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.tech-tags li {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  background-color: #f3f4f6;
+  color: #16181b;
+  border-radius: 200px;
+}

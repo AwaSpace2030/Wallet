@@ -9,13 +9,23 @@ nav {
   align-items: center;
   min-height: 80px;
 }
+
 .logo-icon {
-  width: 30px;
+  width: 50px;
+  padding: 14px;
+  background-color: #0b835b63;
+  border-radius: 14px;
 }
+
 .logo-con {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
+}
+.logo-con h2 {
+  color: #f1faf7f2;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .logo {
