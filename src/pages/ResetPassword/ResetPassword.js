@@ -8,7 +8,7 @@ export default function ResetPassword() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const oobCode = searchParams.get("oobCode"); // الكود من الرابط
+  const oobCode = searchParams.get("oobCode");
 
   const handleSubmit = async (e) => {
     e.preventDefault();

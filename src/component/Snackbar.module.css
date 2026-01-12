@@ -39,5 +39,5 @@
 .snackbar.hide {
   opacity: 0;
   transform: translateY(20px);
-  pointer-events: none; /* لتجنب التفاعل أثناء الاختفاء */
+  pointer-events: none;
 }

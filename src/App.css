@@ -76,7 +76,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px; /* مسافة بين الأيقونة والنص */
+  gap: 6px;
   background-color: var(--color-primary);
   border-radius: 200px;
   padding: 6px 20px;
@@ -85,6 +85,10 @@ button {
   border: 1px solid var(--color-primary);
   cursor: pointer;
   transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
 }
 
 .btn-primary:hover {
@@ -104,6 +108,14 @@ button {
   background-color: transparent;
   cursor: pointer;
   transition: all 0.3s;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  -o-border-radius: 200px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
 }
 
 .btn-out-line:hover {
@@ -114,6 +126,10 @@ button {
   padding: 10px 20px;
   margin: 20px 0;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
@@ -137,6 +153,14 @@ select {
   color: var(--color-text);
   transition: all 0.3s ease;
   outline: none;
+  -webkit-border-radius: var(--radius);
+  -moz-border-radius: var(--radius);
+  -ms-border-radius: var(--radius);
+  -o-border-radius: var(--radius);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 input:hover,
@@ -160,7 +184,7 @@ select:focus {
 }
 
 .form-filter > * {
-  flex: 1; /* كل عنصر يمتد بنفس الحجم */
+  flex: 1;
 }
 
 @media (max-width: 768px) {
@@ -198,12 +222,12 @@ select:focus {
   vertical-align: middle;
   margin-left: 5px;
 }
-/* العنصر الأب يجب أن يكون flex */
+
 .router-spinner {
   display: flex;
-  justify-content: center; /* توسيط أفقي */
-  align-items: center; /* توسيط عمودي */
-  height: 100vh; /* ياخذ كامل ارتفاع الصفحة */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .spinner-larg {
@@ -213,6 +237,11 @@ select:focus {
   border-top: 3px solid var(--color-dark-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  -webkit-border-radius: ;
+  -moz-border-radius: ;
+  -ms-border-radius: ;
+  -o-border-radius: ;
+  -webkit-animation: spin 1s linear infinite;
 }
 
 .spinner-larg {
@@ -227,8 +256,16 @@ select:focus {
 @keyframes spin {
   0% {
     transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
   }
 }
