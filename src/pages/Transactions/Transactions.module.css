@@ -1,0 +1,46 @@
+.dashboard {
+  padding: 60px 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h3 {
+  margin: 20px 0;
+}
+
+.w-user {
+  color: var(--color-dark-primary);
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  45% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animateEmoji {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 1s ease-in-out 8;
+}

@@ -37,7 +37,7 @@ export default function Signup() {
         throw new Error(error || "Signup failed");
       }
 
-      navigate("/", {
+      navigate("/dashboard", {
         state: {
           snackbar: {
             message: "You’re all set! Registration completed successfully 🎉",

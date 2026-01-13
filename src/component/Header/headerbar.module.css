@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  margin: 40px 0;
+  padding-bottom: 20px;
+}
+
+.left h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.right span {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}

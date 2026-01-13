@@ -48,3 +48,9 @@ nav {
   color: #edfaf1;
   font-size: 14px;
 }
+
+.rs-nav {
+  margin-right: 40px;
+  display: flex;
+  gap: 16px;
+}

@@ -1,18 +1,20 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../Context/AppUserContext";
 
-export default function ProtectedRoute({ children }) {
+export default function ProtectedRoute() {
   const { user, loading } = useAuth();
 
-  console.log("ProtectedRoute check:", { user, loading });
-
-  if (loading)
+  if (loading) {
     return (
       <div className="router-spinner">
-        <span className="spinner spinner-larg"></span>
+        <span className="spinner spinner-large"></span>
       </div>
     );
-  if (!user) return <Navigate to="/landing" replace />;
+  }
 
-  return children;
+  if (!user) {
+    return <Navigate to="/landing" replace />;
+  }
+
+  return <Outlet />;
 }

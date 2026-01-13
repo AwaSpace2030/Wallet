@@ -6,7 +6,7 @@
 :root {
   --color-bg: #ffffff;
   --color-text: #030419;
-  --color-text-secondary: #8d909f;
+  --color-text-secondary: #8d90a0;
   --color-primary: #4ccf7f;
   --color-dark-primary: #0e5432;
   --font-base: "Sora", sans-serif;
@@ -268,4 +268,34 @@ select:focus {
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
   }
+}
+
+/*=================link***/
+.link-effect {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f1faf7f2;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-effect::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.link-effect:hover {
+  color: var(--color-primary);
+}
+
+.link-effect:hover::after {
+  width: 100%;
 }

@@ -1,17 +1,15 @@
-import Navbar from "./Navbar";
-import { useLocation } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 
-export function LayoutWithNavbar({ children }) {
+export default function LayoutWithNavbar() {
   const location = useLocation();
 
-  const navbarPages = ["/", "/profile"];
-
+  const navbarPages = ["/dashboard", "/transaction", "/profile"];
   const showNavbar = navbarPages.includes(location.pathname);
 
   return (
     <>
-      {showNavbar && <Navbar />}
-      {children}
+      {showNavbar}
+      <Outlet />
     </>
   );
 }

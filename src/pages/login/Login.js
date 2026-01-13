@@ -31,7 +31,7 @@ function Login() {
       setEmail("");
       setPassword("");
 
-      navigate("/", {
+      navigate("/dashboard", {
         state: {
           snackbar: {
             message: "Login successful 🎉",

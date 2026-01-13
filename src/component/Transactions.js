@@ -4,6 +4,7 @@ import styles from "./Transactions.module.css";
 import { useTransactions } from "../Hooks/useTransaction";
 import TransactionsFilter from "./TransactionsFilter";
 import { IoCloseOutline, IoPricetagOutline } from "react-icons/io5";
+import { motion } from "framer-motion"; // ← استيراد Framer Motion
 
 export default function Transactions() {
   const { transactions, deleteTransaction, loading, error } = useTransactions();
@@ -56,7 +57,14 @@ export default function Transactions() {
           ) : (
             <>
               {filteredTransactions.map((t) => (
-                <li key={t.id} className={styles["transaction-card"]}>
+                <motion.li
+                  key={t.id}
+                  className={styles["transaction-card"]}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  whileHover={{ scale: 1.02 }}
+                >
                   <div className={styles["card-left"]}>
                     <h5>{t.title}</h5>
                     <span className={styles["transaction-category"]}>
@@ -78,22 +86,25 @@ export default function Transactions() {
                   >
                     <IoCloseOutline />
                   </button>
-                </li>
+                </motion.li>
               ))}
 
-              <li
+              <motion.li
                 className={`${styles["transaction-card"]} ${styles["total-card"]}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                whileHover={{ scale: 1.02 }}
               >
                 <div className={styles["card-left"]}>
                   <h5>Total Expenses</h5>
                 </div>
                 <h4>{totalAmount.toFixed(2)} $</h4>
-              </li>
+              </motion.li>
             </>
           )}
         </ul>
       </div>
-
       <SideForm />
     </div>
   );

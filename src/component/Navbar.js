@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./navbar.module.css";
 import { useAuth } from "../Context/AppUserContext";
 import { auth } from "../firebase/config";
@@ -7,7 +7,6 @@ import { IoExitOutline, IoPersonCircle } from "react-icons/io5";
 function Navbar() {
   const { user, userData, loading } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleSignOut = async () => {
     try {
@@ -18,8 +17,7 @@ function Navbar() {
     }
   };
 
-  const showUserMenu =
-    !loading && user && userData?.name && location.pathname === "/";
+  const showUserMenu = !loading && user && userData?.name;
 
   return (
     <nav className={styles.navbar}>
@@ -49,6 +47,14 @@ function Navbar() {
 
           {showUserMenu && (
             <>
+              <ul className={styles["rs-nav"]}>
+                <Link to="/dashboard" className="link-effect">
+                  Dashboard
+                </Link>
+                <Link to="/transaction" className="link-effect">
+                  Transactions
+                </Link>
+              </ul>
               <div className={styles.userInfo}>
                 <IoPersonCircle size={30} className={styles.userIcon} />
                 <span className={styles.username}>{userData.name}</span>
