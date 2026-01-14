@@ -30,15 +30,16 @@
   justify-content: center;
 }
 .iconPart svg {
-  color: var(--color-primary);
-  font-size: 50px;
-  background-color: var(--bg-light-green);
-  padding: 12px;
-  border-radius: 14px;
-  -webkit-border-radius: 14px;
-  -moz-border-radius: 14px;
-  -ms-border-radius: 14px;
-  -o-border-radius: 14px;
+  align-items: center;
+  background-color: rgb(232, 247, 242);
+  color: rgb(22, 163, 74);
+  display: flex;
+  flex-shrink: 0;
+  height: 45px;
+  justify-content: center;
+  width: 45px;
+  border-radius: 0.6rem;
+  padding: 9px;
 }
 
 .subtitle {
@@ -47,21 +48,27 @@
 }
 
 .mainValue {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
   color: #333;
 }
 
 .title {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
 }
 
 .Category-value {
   font-size: 16px;
 }
-.Category-title {
-  font-size: 28px;
+.category-title {
+  font-size: 24px;
   font-weight: bold;
   color: #333;
+}
+
+/*chart css*/
+.chartHeader {
+  padding: 20px;
+  padding-bottom: 40px;
 }

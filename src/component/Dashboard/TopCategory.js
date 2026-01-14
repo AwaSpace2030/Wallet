@@ -1,6 +1,7 @@
 import styles from "./DashboardCards.module.css";
 import { motion } from "framer-motion";
 import { IoStarOutline } from "react-icons/io5";
+import { calculateTopCategory } from "../../services/TopCategory";
 
 export default function TopCategory({
   mainValue,
@@ -18,8 +19,16 @@ export default function TopCategory({
       <div className={styles.cardContent}>
         <div className={styles.textPart}>
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-          {title && <p className={styles.title}>{title}</p>}
-          {mainValue && <h3 className={styles.mainValue}>{mainValue}</h3>}
+          {title && (
+            <p className={`${styles.title} ${styles["category-title"]}`}>
+              {title}
+            </p>
+          )}
+          {mainValue && (
+            <h3 className={`${styles.mainValue} ${styles["Category-value"]} `}>
+              {mainValue}
+            </h3>
+          )}
         </div>
 
         <div className={styles.iconPart}>
