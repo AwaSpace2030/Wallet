@@ -4,7 +4,7 @@ import styles from "./Transactions.module.css";
 import { useTransactions } from "../Hooks/useTransaction";
 import TransactionsFilter from "./TransactionsFilter";
 import { IoCloseOutline, IoPricetagOutline } from "react-icons/io5";
-import { motion } from "framer-motion"; // ← استيراد Framer Motion
+import { motion } from "framer-motion";
 
 export default function Transactions() {
   const { transactions, deleteTransaction, loading, error } = useTransactions();

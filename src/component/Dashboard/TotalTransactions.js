@@ -1,6 +1,6 @@
 import styles from "./DashboardCards.module.css";
 import { motion } from "framer-motion";
-import { IoWalletOutline } from "react-icons/io5";
+import { IoCashOutline } from "react-icons/io5";
 
 export default function TotalExpenses({
   mainValue,
@@ -21,8 +21,9 @@ export default function TotalExpenses({
           {mainValue && <h3 className={styles.mainValue}>{mainValue}</h3>}
           {title && <p className={styles.title}>{title}</p>}
         </div>
+
         <div className={styles.iconPart}>
-          <IoWalletOutline />
+          <IoCashOutline />
         </div>
       </div>
     </motion.div>

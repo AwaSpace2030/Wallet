@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.navCon}`}>
-        <Link to="/">
+        <Link to="/dashboard">
           <div className={styles["logo-con"]}>
             <img
               src="/logo.svg"

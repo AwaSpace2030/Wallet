@@ -1,10 +1,10 @@
 import styles from "./DashboardCards.module.css";
 import { motion } from "framer-motion";
-import { IoWalletOutline } from "react-icons/io5";
+import { IoStarOutline } from "react-icons/io5";
 
-export default function TotalExpenses({
+export default function TopCategory({
   mainValue,
-  subtitle = "Total Expenses",
+  subtitle = "Top Category",
   title = "This month",
 }) {
   return (
@@ -18,11 +18,12 @@ export default function TotalExpenses({
       <div className={styles.cardContent}>
         <div className={styles.textPart}>
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-          {mainValue && <h3 className={styles.mainValue}>{mainValue}</h3>}
           {title && <p className={styles.title}>{title}</p>}
+          {mainValue && <h3 className={styles.mainValue}>{mainValue}</h3>}
         </div>
+
         <div className={styles.iconPart}>
-          <IoWalletOutline />
+          <IoStarOutline />
         </div>
       </div>
     </motion.div>

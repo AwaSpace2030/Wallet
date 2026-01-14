@@ -1,0 +1,67 @@
+.boxCard {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #f2f2f2;
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.textPart {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+.iconPart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconPart svg {
+  color: var(--color-primary);
+  font-size: 50px;
+  background-color: var(--bg-light-green);
+  padding: 12px;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #888;
+}
+
+.mainValue {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.title {
+  font-size: 16px;
+  color: #555;
+}
+
+.Category-value {
+  font-size: 16px;
+}
+.Category-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
