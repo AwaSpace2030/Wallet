@@ -1,6 +1,5 @@
 # Wallet
-
-![Wallet Logo](./logo.svg)
+ 
 
 **Wallet** is a minimal expense tracking application built for simplicity and clarity.
 
