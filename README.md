@@ -1,73 +1,65 @@
-# Getting Started with Create React App
+# Wallet
 
-live Link :
-https://wallet1-app.netlify.app/
+![Wallet Logo](./logo.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Wallet** is a minimal expense tracking application built for simplicity and clarity.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Live Demo
+Try the app live here: [Wallet App](https://wallet1-app.netlify.app/)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Overview
+Wallet is a personal finance React web application that helps users track their daily expenses in a clean and intuitive way. The focus of this project is to remove unnecessary complexity and provide a smooth user experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
+- Track daily expenses
+- Categorize expenses
+- Monthly expense dashboard
+- Visual charts & statistics
+- Simple and clean interface
+- Secure authentication
+- Responsive design
+- Cloud data storage with Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Tech Stack
+- React
+- React Router
+- Firebase (Authentication & Cloud Firestore)
+- CSS Modules
+- Framer Motion
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Purpose
+This project was created as a learning experience and a foundation for future features and improvements.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Future Improvements
+- Dark mode for better user experience
+- Export reports to PDF/CSV
+- Notifications & reminders
+- Income tracking (ability to log and track income)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## GitHub Repository
+Check out the source code here: [GitHub Repository](https://github.com/your-username/your-project)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation / Running the Project
 
-## Learn More
+To run this project locally, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Clone the repository** (from the `master` branch):
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone -b master https://github.com/your-username/your-project.git
