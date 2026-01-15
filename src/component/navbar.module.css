@@ -23,7 +23,7 @@ nav {
   align-items: center;
 }
 .logo-con h2 {
-  color: #f1faf7f2;
+  color: var(--bg-light-green);
   font-weight: 600;
   font-size: 18px;
 }

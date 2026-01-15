@@ -24,10 +24,14 @@
 .right-nav li a {
   font-size: 14px;
   font-weight: 500;
-  color: #a7beb3;
+  color: var(--color-text-tertiary);
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
 }
 
 .right-nav li a::after {
@@ -39,6 +43,10 @@
   height: 2px;
   background-color: var(--color-primary);
   transition: width 0.3s ease;
+  -webkit-transition: width 0.3s ease;
+  -moz-transition: width 0.3s ease;
+  -ms-transition: width 0.3s ease;
+  -o-transition: width 0.3s ease;
 }
 
 .right-nav li a:hover {
@@ -56,7 +64,7 @@
 }
 
 .nav-logo p {
-  color: #f1faf7f2;
+  color: var(--bg-light-green);
   font-weight: 600;
   font-size: 18px;
 }

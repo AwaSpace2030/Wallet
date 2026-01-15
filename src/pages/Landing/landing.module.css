@@ -111,6 +111,7 @@
   .right-side {
     align-items: center;
     text-align: center;
+    padding: 16px;
   }
 }
 
@@ -122,7 +123,7 @@
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  color: #a7beb3;
+  color: var(--color-text-tertiary);
 }
 
 .highlight-text {

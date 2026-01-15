@@ -1,11 +1,11 @@
-import "./App.css";
+import "./global.css";
 import "./styles/forms.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import Transaction from "./pages/Transactions/Transactions";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import About from "./pages/About/About";

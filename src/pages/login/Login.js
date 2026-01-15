@@ -3,6 +3,7 @@ import styles from "../login/login.module.css";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "../../Hooks/useLogin";
+import DemoAccountCard from "../../component/DemoAccount";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -97,6 +98,7 @@ function Login() {
         <Link to="/forgotpassword" className="link">
           Forgot password?
         </Link>
+        <DemoAccountCard />
       </motion.form>
     </div>
   );
