@@ -14,11 +14,11 @@
 
 .right-nav {
   display: flex;
-  align-items: center;
   gap: 28px;
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .right-nav li a {
@@ -55,6 +55,14 @@
 
 .right-nav li a:hover::after {
   width: 100%;
+}
+
+.right-nav li .getLink {
+  position: relative;
+  top: 2px;
+}
+.right-nav li .getLink:hover::after {
+  width: 0;
 }
 
 .nav-logo {

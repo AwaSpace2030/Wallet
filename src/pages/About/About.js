@@ -1,6 +1,8 @@
 import Footer from "../../component/Footer";
 import NavbarLanding from "../../component/NavbarLanding";
 import styles from "./about.module.css";
+import { FiExternalLink } from "react-icons/fi";
+
 import {
   FiTrendingUp,
   FiLayout,
@@ -14,7 +16,6 @@ const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-// ... باقي الاستيرادات والكود كما هو
 
 function About() {
   const features = [
@@ -168,6 +169,26 @@ function About() {
               </motion.li>
             ))}
           </ul>
+        </motion.section>
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2>View on GitHub</h2>
+          <p>
+            Curious to see the code? Visit the project on GitHub:{" "}
+            <a
+              href="https://github.com/AwaSpace2030/Wallet"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.linkOut}
+            >
+              Wallet GitHub Repository <FiExternalLink />
+            </a>
+            .
+          </p>
         </motion.section>
       </div>
 

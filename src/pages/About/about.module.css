@@ -136,3 +136,8 @@
   color: #16181b;
   border-radius: 200px;
 }
+
+.linkOut {
+  color: var(--color-dark-primary);
+  text-decoration: underline;
+}
