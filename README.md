@@ -49,11 +49,6 @@ This project was created as a learning experience and a foundation for future fe
 
 ---
 
-## GitHub Repository
-Check out the source code here: [GitHub Repository](https://github.com/your-username/your-project)
-
----
-
 ## Installation / Running the Project
 
 To run this project locally, follow these steps:
