@@ -1,23 +1,47 @@
 import Footer from "../../component/Footer";
 import NavbarLanding from "../../component/NavbarLanding";
 import styles from "./about.module.css";
-import { FiTrendingUp, FiLayout, FiLock, FiSmartphone } from "react-icons/fi";
+import {
+  FiTrendingUp,
+  FiLayout,
+  FiLock,
+  FiSmartphone,
+  FiTarget,
+} from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
+// ... باقي الاستيرادات والكود كما هو
 
 function About() {
   const features = [
     { icon: <FiTrendingUp />, text: "Track daily expenses" },
+    { icon: <FiLayout />, text: "Categorize expenses" },
+    { icon: <FiTrendingUp />, text: "Monthly expense dashboard" },
+    { icon: <FiTrendingUp />, text: "Visual charts & statistics" },
     { icon: <FiLayout />, text: "Simple and clean interface" },
     { icon: <FiLock />, text: "Secure authentication" },
     { icon: <FiSmartphone />, text: "Responsive design" },
+    { icon: <FiLock />, text: "Cloud data storage with Firebase" },
   ];
 
-  const techStack = ["React", "React Router", "CSS Modules", "Framer Motion"];
+  const techStack = [
+    "React",
+    "React Router",
+    "Firebase (Authentication & Cloud Firestore)",
+    "CSS Modules",
+    "Framer Motion",
+  ];
+
+  const futureImprovements = [
+    "Dark mode for better user experience",
+    "Export reports to PDF/CSV",
+    "Notifications & reminders",
+    "Income tracking (adding the ability to log and track income)",
+  ];
 
   return (
     <div className={styles.About}>
@@ -56,10 +80,10 @@ function About() {
         >
           <h2>Project Overview</h2>
           <p>
-            Wallet is a personal finance web application that helps users track
-            their daily expenses in a clean and intuitive way. The focus of this
-            project is to remove unnecessary complexity and provide a smooth
-            user experience.
+            Wallet is a personal finance React web application that helps users
+            track their daily expenses in a clean and intuitive way. The focus
+            of this project is to remove unnecessary complexity and provide a
+            smooth user experience.
           </p>
         </motion.section>
 
@@ -119,6 +143,31 @@ function About() {
             This project was created as a learning experience and a foundation
             for future features and improvements.
           </p>
+        </motion.section>
+
+        {/* Future Improvements */}
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2>Future Improvements</h2>
+          <ul className={styles["feat-cards"]}>
+            {futureImprovements.map((item, idx) => (
+              <motion.li
+                className={styles.card}
+                key={idx}
+                variants={fadeUp}
+                transition={{ delay: idx * 0.1 }}
+              >
+                <span className={styles.icon}>
+                  <FiTarget />
+                </span>
+                <span>{item}</span>
+              </motion.li>
+            ))}
+          </ul>
         </motion.section>
       </div>
 

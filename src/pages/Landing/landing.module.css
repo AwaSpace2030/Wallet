@@ -55,6 +55,9 @@
 .right-side p,
 .features li {
   color: #a7beb3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .features {
@@ -62,10 +65,20 @@
   gap: 30px;
   margin: 0 16px;
   font-size: 14px;
+  flex-wrap: wrap;
+}
+.intro-buttons {
+  display: flex;
+  gap: 16px;
 }
 
-.features li::marker {
-  color: var(--color-primary);
+.btn-more {
+  background-color: transparent;
+  padding: 12px 60px;
+  margin-top: 20px;
+  color: white;
+  font-weight: 400;
+  border-color: #a7beb3af;
 }
 
 .right-side {
@@ -99,4 +112,19 @@
     align-items: center;
     text-align: center;
   }
+}
+
+.intro-lable {
+  background-color: #0b835b63;
+  padding: 6px 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  color: #a7beb3;
+}
+
+.highlight-text {
+  color: var(--color-primary);
 }
